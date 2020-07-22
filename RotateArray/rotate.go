@@ -17,16 +17,18 @@ package rotate
 // 向右旋转 1 步: [99,-1,-100,3]
 // 向右旋转 2 步: [3,99,-1,-100]
 
-func Rotate(nums []int, k int) {
-	rotate(nums, k)
-}
-
-func rotate(nums []int, k int) {
-	length := len(nums)
-	if k >= length {
+func changeNum(nums []int, changeNum, p, q int) {
+	if changeNum < 0 {
 		return
 	}
-	array1 := nums[length-3:]
-	array2 := nums[:length-3]
-	nums = append(array1, array2...)
+	changeNum(nums, changeNum)
+	changeNum--
+}
+
+func Rotate(nums []int, k int) {
+	for i := 0; i < k; i++ {
+		tmp := nums[i+k]
+		nums[i+k] = nums[i]
+
+	}
 }

@@ -185,30 +185,50 @@ func MinArray(numbers []int) int {
 输出：3
 */
 
+// func ShortestSubarray(A []int, K int) int {
+// 	result := len(A)
+// 	start := 0
+// 	sum := 0
+// 	maxSum := 0
+// 	for i := start; i < len(A); i++ {
+// 		sum += A[i]
+// 		if sum >= K && result > (i-start+1) {
+// 			result = (i - start + 1)
+// 		}
+
+// 		if (i+1 == len(A) && sum < K) || (sum >= K) {
+// 			if sum > maxSum {
+// 				maxSum = sum
+// 			}
+// 			sum = 0
+// 			start++
+// 			i = start - 1
+// 		}
+// 	}
+
+// 	if maxSum < K {
+// 		return -1
+// 	}
+
+// 	return result
+// }
+
 func ShortestSubarray(A []int, K int) int {
-	result := len(A)
-	start := 0
-	sum := 0
-	maxSum := 0
-	for i := start; i < len(A); i++ {
-		sum += A[i]
-		if sum >= K && result > (i-start+1) {
-			result = (i - start + 1)
-		}
-
-		if (i+1 == len(A) && sum < K) || (sum >= K) {
-			if sum > maxSum {
-				maxSum = sum
+	i := 0
+	j := len(A) - 1
+	maxNum := 0
+	for i < j {
+		m := (i + j) / 2
+		if A[m] > A[j] {
+			i = m + 1
+		} else if A[m] < A[j] {
+			j = m
+		} else {
+			if maxNum < A[j] {
+				maxNum = A[j]
 			}
-			sum = 0
-			start++
-			i = start - 1
+			j--
 		}
 	}
-
-	if maxSum < K {
-		return -1
-	}
-
-	return result
+	return i
 }

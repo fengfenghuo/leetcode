@@ -10,14 +10,44 @@ import (
 )
 
 func main() {
-	// str := ""
-	// str := " "
-	// str := "abcabcbb"
-	str := "dvdf"
+	// 48, 99, 37, 4, -31
+	// 140
 
-	maxLength := common.LengthOfLongestSubstring(str)
-	fmt.Println(maxLength)
+	// [56,-21,56,35,-9]
+	// 61
+	A := []int{1, 2}
+	K := 61
+	num := common.ShortestSubarray(A, K)
+	fmt.Println(num)
 }
+
+// func main() {
+// 	nums := []int{3, 1}
+// 	num := common.MinArray(nums)
+// 	fmt.Println(num)
+// }
+
+// func main() {
+// 	str := "111111"
+// 	num := common.NumSub(str)
+// 	fmt.Println(num)
+// }
+
+// func main() {
+// 	nums := []int{0, 12345}
+// 	newNum := common.SwapNumbers(nums)
+// 	fmt.Println(newNum)
+// }
+
+// func main() {
+// 	// str := ""
+// 	// str := " "
+// 	// str := "abcabcbb"
+// 	str := "dvdf"
+
+// 	maxLength := common.LengthOfLongestSubstring(str)
+// 	fmt.Println(maxLength)
+// }
 
 // func main() {
 // 	// 输入:
